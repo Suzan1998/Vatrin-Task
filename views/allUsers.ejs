@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vatrin Task</title>
+     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+</head>
+  <body>
+        
+    <div class="jumbotron" style="background-color: #2b3f40; height: 100px;">
+      <h1 style="margin-left:20;margin-top: -30px; color: aliceblue;">Users List:
+        <a style="color: aliceblue;" href="/">&rarr;</a></h1>
+
+    </div>
+    <div class="container">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-sm-offset-0" >
+            <div class="panel panel-info">
+                      <div class="panel-heading" style="background-color: #102925;">
+                          <h3 class="panel-title" style="color: blanchedalmond;"> Users Data:</h3>
+                      </div>
+                      <% data.forEach(function(user){ %>
+                        <div class="row">
+                          <div class="col-md-3 col-lg-3 "> <img alt="User Pic" src="<%=user.image %>" class=" img-responsive"> </div>                      <div class=" col-md-9 col-lg-9 "> 
+                              <table class="table table-user-information">
+                                <tbody>
+                                  <tr>
+                                    <td>Full Name:</td>
+                                    <td><%= user.first_name %>  <%= user.last_name %></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Job Title</td>
+                                    <td> <%= user.job %></td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                      </div>
+                      <% }); %>
+                </div>
+          </div>
+        </div>
+     </div>
+  </body>
+</html>
