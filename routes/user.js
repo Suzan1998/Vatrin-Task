@@ -1,6 +1,5 @@
 
 var Person = require('../models/Person');
-
 //------1-----//For Regestering Person (Adding User)
 exports.register = async function(req, res){
    message = '';
@@ -43,37 +42,37 @@ exports.login = async function(req, res){
       res.render('index.ejs',{message: message});
    }
 
-
-
-
 };
 
 //List All Users//
 exports.usersList = async function(req, res){
     await Person.query()
-    .then(function (person, index) {res.render('allUsers.ejs',{data:person, index:index}) });
+    .then(function (person, index) {res.render('allUsers.ejs',{data:person, index}) });
 };
-//------3-----//Edit User Data
-exports.editprofile= async function(req,res){
+    
+
+//------3-----//to logout//
+exports.logout= async function(req,res){
+   req.session.destroy(function(err) {
+      res.redirect("/login");
+   })
+};
+
+
+
+//------4-----//Edit User Data we can later create edit view
+/*exports.editprofile= async function(req,res){
    var userId = req.session.userId;
    if(userId == null){
       res.redirect("/login");
       return;
    }
 
-
    Person.query()
       .where({id:userId})
-   db.query(sql, function(err, results){
-      res.render('edit_profile.ejs',{data:results});
-   });
-};
+      .then(function(person){res.render('edit_profile.ejs',{data:person})});
+   };*/
 
 
 
-//to logout//
-exports.logout= async function(req,res){
-   req.session.destroy(function(err) {
-      res.redirect("/login");
-   })
-};
+

@@ -21,12 +21,16 @@
                       </div>
                       <% data.forEach(function(user){ %>
                         <div class="row">
-                          <div class="col-md-3 col-lg-3 "> <img alt="User Pic" src="<%=user.image %>" class=" img-responsive"> </div>                      <div class=" col-md-9 col-lg-9 "> 
+                          <div class="col-md-3 col-lg-3 "> <img style="border: solid #102925;" width="200" height="100" alt="User Pic" src="<%=user.image %>" class=" img-responsive"> </div>                      <div class=" col-md-9 col-lg-9 "> 
                               <table class="table table-user-information">
-                                <tbody>
+                                <tbody style="border-bottom: solid #102925;">
                                   <tr>
                                     <td>Full Name:</td>
                                     <td><%= user.first_name %>  <%= user.last_name %></td>
+                                  </tr>
+                                  <tr >
+                                    <td> Country:</td>
+                                    <td><%= user.country %></td>
                                   </tr>
                                   <tr>
                                     <td>Job Title</td>
